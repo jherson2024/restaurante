@@ -1,30 +1,30 @@
-<!-- navbar.component.html -->
 <nav class="navbar" [ngClass]="{ 'logged-in': isLoggedIn }">
+  <div class="nav-section left">
+    <ul class="nav-links">
+      <li class="nav-item"><a routerLink="/menu" class="nav-link">Menu</a></li>
+      <li class="nav-item"><a routerLink="/cart" class="nav-link">Carrito</a></li>
+      <li class="nav-item"><a routerLink="/checkout" class="nav-link">Pago</a></li>
+      <li class="nav-item"><a routerLink="/order-confirmation" class="nav-link">Confirmación de orden</a></li>
+      <li class="nav-item"><a routerLink="/reserva" class="nav-link">Reserva</a></li>
+    </ul>
+  </div>
   <div class="logo">
     <a routerLink="/home">
-      <!-- <img src="/assets/barbeque-logo.svg" alt="Logo"> -->
+      <img src="/logoTerminado.png" alt="Sabor Express Logo">
     </a>
   </div>
-  <ul class="nav-links">
-    <li><a routerLink="/menu">Menu</a></li>
-    <li><a routerLink="/cart">Carrito</a></li>
-    <li><a routerLink="/checkout">Pago</a></li>
-    <li><a routerLink="/order-confirmation">Confirmación de orden</a></li>
-    <li><a routerLink="/reserva">Reserva</a></li>
-    <li><a routerLink="/order-history">Historial de órdenes</a></li>
-    <li><a routerLink="/user-profile">Perfil del usuario</a></li>
-    <li><a routerLink="/contact-us">Contactanos</a></li>
-    <li><a routerLink="/user-login">user</a></li>
-    <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
-    <li *ngIf="!isLoggedIn"><a routerLink="/register">Register</a></li>
-    <li *ngIf="isLoggedIn"><button (click)="logout()" class="logout-button">Logout</button></li>
-  </ul>
-  <!-- <div class="nav-icons">
-    <span class="search-icon">&#128269;</span> 
-    <span class="cart-icon">&#128722;</span> Aquí puedes usar un ícono de carrito
-  </div> -->
-  <div *ngIf="isLoggedIn" class="welcome-message">
-    {{ clienteNombre }}
+  <div class="nav-section right">
+    <ul class="nav-links">
+      <li class="nav-item"><a routerLink="/order-history" class="nav-link">Historial de órdenes</a></li>
+      <li class="nav-item"><a routerLink="/user-profile" class="nav-link">Perfil del usuario</a></li>
+      <li class="nav-item"><a routerLink="/contact-us" class="nav-link">Contactanos</a></li>
+      <li class="nav-item"><a routerLink="/user-login" class="nav-link">user</a></li>
+      <li class="nav-item" *ngIf="!isLoggedIn"><a routerLink="/login" class="nav-link">Login</a></li>
+      <li class="nav-item" *ngIf="!isLoggedIn"><a routerLink="/register" class="nav-link">Register</a></li>
+      <li class="nav-item" *ngIf="isLoggedIn"><button (click)="logout()" class="logout-button nav-link">Logout</button></li>
+    </ul>
+    <div *ngIf="isLoggedIn" class="welcome-message">
+      {{ clienteNombre }}
+    </div>
   </div>
 </nav>
-

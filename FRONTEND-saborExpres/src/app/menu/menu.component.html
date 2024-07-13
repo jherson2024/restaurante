@@ -1,4 +1,26 @@
 <div id="productos">
+  <h1 class="product-title">Menú de Productos</h1>
+  <ul class="product-list">
+    <li *ngFor="let producto of productos" class="product-item">
+      <div class="product-content">
+        <div *ngIf="producto.imagen" class="product-image-container">
+          <img [src]="producto.imagen" alt="{{ producto.nombre }}" class="product-image" (click)="showProductId(producto.id, clienteId)">
+        </div>
+        <div *ngIf="!producto.imagen" class="product-no-image">
+          <p class="product-name">Nombre: {{ producto.nombre }}</p>
+        </div>
+        <div class="product-info">
+          <span class="product-name">{{ producto.nombre }}</span>
+          <p class="product-description">{{ producto.descripcion }}</p>
+          <span class="product-price">Precio: {{ producto.precio }}</span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+<!-- <div id="productos">
     <h1>Menú de Productos</h1>
     <ul class="product-list">
       <li *ngFor="let producto of productos" class="product-item">
@@ -14,4 +36,4 @@
       </li>
     </ul>
   </div>
-  
+   -->

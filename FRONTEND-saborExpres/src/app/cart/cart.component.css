@@ -1,70 +1,57 @@
+
+
 #productos {
-    text-align: center;
-    color: black;
-    background-color: white;
-    margin: 0 auto;
-    width: 50%;
-    border: 1px solid black;
-    padding: 20px;
-  }
-  
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  ul.product-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .product-item {
-    border-bottom: 1px solid black;
-    padding: 10px 0;
-  }
-  
-  .product-item:last-child {
-    border-bottom: none;
-  }
-  
-  .product-image {
-    max-width: 100px;
-    max-height: 100px;
-    display: block;
-    margin: 0 auto 10px;
-  }
-  
-  .product-name {
-    font-size: 18px;
-    font-weight: bold;
-    display: block;
-    margin: 5px 0;
-  }
-  
-  .product-price {
-    font-size: 16px;
-    display: block;
-    margin: 5px 0;
-  }
-  
-  h3 {
-    font-size: 20px;
-    margin-top: 20px;
-    border-top: 1px solid black;
-    padding-top: 10px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: black;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  
-  button:hover {
-    background-color: gray;
-  }
-  
+  padding: 20px;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+}
+
+.product-list {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.product-item {
+  background-color: var(--secondary-color);
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.product-name {
+  font-size: 1.5em;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.product-price {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+button {
+  background-color: var(--button-color);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: var(--button-hover-color);
+}

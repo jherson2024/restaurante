@@ -1,53 +1,125 @@
-#productos {
-    padding: 2rem;
-}
-
-#productos h1 {
+:root {
+    --primary-color: #F08080; /* Light Coral */
+    --secondary-color: #FFA500; /* Orange */
+    --background-color: #FFF5EE; /* Seashell */
+    --text-color: #2F4F4F; /* Dark Slate Gray */
+    --accent-color: #FFA500; /* Orange */
+    --button-color: #F08080; /* Light Coral */
+    --button-hover-color: #FF6347; /* Tomato */
+    --navbar-background: #f9d7d7; /* Very Light Coral */
+    --navbar-link-color: #da4506; /* Dark Orange */
+    --navbar-link-hover: #3e1402; /* Dark Brown */
+    --navbar-link-underline: #c11700; /* Red */
+    --card-background-color: #FFDAB9; /* Peach Puff */
+    --card-text-color: #8B4513; /* Saddle Brown */
+  }
+  
+  #productos {
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+  }
+  
+  .product-title {
+    font-size: 2em;
+    color: var(--text-color);
     text-align: center;
-    margin-bottom: 2rem;
-}
-
-.product-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .product-list {
     list-style-type: none;
     padding: 0;
-}
-
-.product-item {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 1rem;
-    padding: 1rem;
-    flex: 1 0 21%; /* Ajusta el tamaño para el número de elementos por fila */
-    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra las tarjetas */
+  }
+  
+  .product-item {
+    background-color: var(--card-background-color); /* Usando el nuevo color de fondo */
+    color: var(--card-text-color); /* Usando el nuevo color de texto */
+    margin: 10px;
+    padding: 20px; /* Agregado padding para mejorar la apariencia */
+    border-radius: 10px;
+    width: calc(25% - 40px); /* Ajustado para mostrar hasta 4 productos por fila */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s;
+    min-height: 400px; /* Aumentar la altura mínima de las tarjetas */
+  }
+  
+  .product-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .product-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between; /* Distribuir espacio entre elementos */
+  }
+  
+  .product-image-container {
+    width: 100%;
+    height: 200px; /* Definir un tamaño fijo para todas las imágenes */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    overflow: hidden;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Para que la imagen se ajuste al contenedor */
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .product-no-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px; /* Asegurar que el contenedor sin imagen tenga el mismo tamaño */
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .product-info {
     text-align: center;
-}
-
-.product-item a {
-    text-decoration: none;
-    color: #333;
+    padding: 10px;
+    width: 100%; /* Asegurar que ocupe el ancho completo */
+  }
+  
+  .product-name {
+    font-size: 1.5em;
+    color: var(--card-text-color); /* Usando el nuevo color de texto */
+    margin-bottom: 10px;
+  }
+  
+  .product-description {
+    font-size: 1em;
+    color: var(--card-text-color); /* Usando el nuevo color de texto */
+    margin-bottom: 10px;
+    height: 50px; /* Limitar la altura de la descripción */
+    overflow: hidden; /* Ocultar el texto que sobrepase la altura */
+    text-overflow: ellipsis; /* Añadir puntos suspensivos al final del texto largo */
+    white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
+  }
+  
+  .product-price {
+    font-size: 1.2em;
+    color: var(--accent-color);
     font-weight: bold;
-}
-
-.product-item a:hover {
-    text-decoration: underline;
-}
-
-.product-image {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
-}
-
-.product-name {
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.product-price {
-    color: #888;
-}
+  }
+  
