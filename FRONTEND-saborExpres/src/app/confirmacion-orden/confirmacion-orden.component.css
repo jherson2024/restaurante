@@ -1,0 +1,93 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  div {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 0px solid #000;
+    border-radius: 0px;
+    background: #fff;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: rgb(234, 230, 222);
+  }
+  #principal{
+    background-color: rgb(234, 230, 222);
+    border: 1px solid #000;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  h2 {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+    text-align: left;
+  }
+  
+  ul li {
+    font-size: 16px;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  ul li:last-child {
+    border-bottom: none;
+  }
+  
+  .logo-image {
+    max-width: 100px;
+    margin-bottom: 20px;
+  }
+  
+  p.error-message {
+    font-size: 18px;
+    color: red;
+    text-align: center;
+  }
+  
+  p.total {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    border-top: 2px solid #000;
+    padding-top: 10px;
+  }
+  
+  .header-section {
+    border-bottom: 2px solid #000;
+    margin-bottom: 10px;
+  }
+  
+  .details-section {
+    margin-bottom: 20px;
+  }
+  
+  .client-info {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .bold {
+    font-weight: bold;
+  }
+
+  

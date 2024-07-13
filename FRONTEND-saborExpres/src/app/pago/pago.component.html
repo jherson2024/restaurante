@@ -1,0 +1,12 @@
+<div class="pago-container">
+    <h1>Pago con Yape</h1>
+    <img [src]="'http://127.0.0.1:8000/static/images/qr.png'" alt="QR Code para Yape" class="qr-code">
+  
+    <button (click)="simularEscaneo()">Simular Escaneo con el QR</button>
+  
+    <div *ngIf="pagoRealizado" class="pago-realizado">
+      <h2>Pago Realizado</h2>
+      <p>¡Gracias por su compra!</p>
+    </div>
+  </div>
+  

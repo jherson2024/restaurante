@@ -1,0 +1,100 @@
+/* Estilos para el contenedor principal */
+div {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos para el título principal */
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Estilos para cada grupo de control en el formulario */
+form > div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos para las etiquetas */
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+/* Estilos para los campos de entrada de texto */
+input[type="text"],
+textarea,
+select,
+input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Estilos para el botón de enviar */
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilos para el botón de enviar al pasar el ratón por encima */
+button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+/* Estilos para el título de la lista de productos */
+h2 {
+  margin-top: 40px;
+  color: #333;
+}
+
+/* Estilos para la lista de productos */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Estilos para cada elemento de la lista de productos */
+li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilos para el botón de eliminar */
+button {
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilos para el botón de eliminar al pasar el ratón por encima */
+button:hover {
+  background-color: #c82333;
+}

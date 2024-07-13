@@ -1,0 +1,17 @@
+<!-- user-login.component.html -->
+<div class="login-container">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" formControlName="nombre" type="text">
+      </div>
+      <div>
+        <label for="password">Contraseña:</label>
+        <input id="password" formControlName="password" type="password">
+      </div>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+  

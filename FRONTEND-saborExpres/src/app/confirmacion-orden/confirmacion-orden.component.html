@@ -1,0 +1,33 @@
+<div #boleta id="principal" *ngIf="ordenId">
+    <img [src]="'http://127.0.0.1:8000/static/images/logo.png'" alt="logo" class="logo-image">
+    <div class="header-section">
+      <h1>Restaurante</h1>
+      <p>RESTAURANTE S.A.C</p>
+      <p>R.U.C.: 20123456789</p>
+      <p>Calle Paucarpata ***</p>
+      <p>Cercado - Arequipa</p>
+      <p>Tel: 123-4567</p>
+      <p>info a restaurante.com</p>
+    </div>
+    <h2>BOLETA DE VENTA ELECTRÓNICA</h2>
+    <div class="details-section">
+      <p><span class="bold">Orden ID:</span> {{ ordenId }}</p>
+      <p><span class="bold">Fecha:</span> {{ currentDate }}</p>
+      <p><span class="bold">Hora:</span> {{ currentTime }}</p>
+      <p><span class="bold">CLIENTE:</span> {{clienteNombre}}</p>
+      <!-- <p class="client-info"><span class="bold">DNI:</span> 12345678</p> -->
+    </div>
+    <h2>Boleta de Compra</h2>
+    <ul>
+      <li *ngFor="let producto of productos">
+        {{ producto.nombre }} - {{ producto.precio | currency }}
+      </li>
+    </ul>
+    <p class="total">Total: {{ total | currency }}</p>
+  </div>
+  <div *ngIf="!ordenId">
+    <p class="error-message">Error: No se ha proporcionado un ID de orden.</p>
+  </div>
+  <button (click)="generarPDF()">Imprimir Boleta</button>
+  <button (click)="enviarBoletaPorEmail()">Enviar Boleta por Email</button>
+  

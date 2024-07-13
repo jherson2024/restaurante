@@ -1,0 +1,17 @@
+<div id="productos">
+    <h1>Menú de Productos</h1>
+    <ul class="product-list">
+      <li *ngFor="let producto of productos" class="product-item">
+        <div *ngIf="producto.imagen">
+          <img [src]="producto.imagen" alt="{{ producto.nombre }}" class="product-image" (click)="showProductId(producto.id, clienteId)">
+        </div>
+        <div *ngIf="!producto.imagen">
+          <p>Nombre: {{ producto.nombre }}</p>
+        </div>
+        <span class="product-name">{{ producto.nombre }}</span>
+        <p>{{ producto.descripcion }}</p>
+        <span class="product-price">Precio: {{ producto.precio }}</span>
+      </li>
+    </ul>
+  </div>
+  
