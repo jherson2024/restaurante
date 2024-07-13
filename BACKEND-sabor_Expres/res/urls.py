@@ -1,4 +1,7 @@
 from django.urls import include, path
+
+from django.contrib import admin
+
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -9,6 +12,7 @@ router.register(r'productos', views.ProductoViewSet)
 router.register(r'carritos', views.CarritoViewSet)
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('productos/', views.productos, name='productos'),
     path('login/', views.login_view, name='login'),
