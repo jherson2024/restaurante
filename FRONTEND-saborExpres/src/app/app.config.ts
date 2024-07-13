@@ -7,10 +7,12 @@ import { LogoutComponent } from './logout/logout.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ContactanosComponent } from './contactanos/contactanos.component';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter([
+      {path: 'contactanos', component: ContactanosComponent},
   {path: 'login', component: LoginComponent},
       {path: 'menu', component: MenuComponent},
       {path: 'register', component: RegisterComponent},

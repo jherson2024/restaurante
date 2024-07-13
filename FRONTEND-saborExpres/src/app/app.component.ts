@@ -13,13 +13,14 @@ import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ContactanosComponent } from './contactanos/contactanos.component';
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,
     RouterLink,FormsModule,NavBarComponent,LoginComponent,CommonModule,CartComponent,PagoComponent,
   ConfirmacionOrdenComponent,HttpClientModule,RegisterComponent,LogoutComponent,
-   UserLoginComponent,DashboardComponent],
+   UserLoginComponent,DashboardComponent,ContactanosComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
