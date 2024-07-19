@@ -29,4 +29,7 @@ urlpatterns = [
      path('api/enviar_boleta/', views.enviar_boleta, name='enviar_boleta'),
      path('api/', include(router.urls)),
      path('api/obtener-precio-producto/', views.obtener_precio_producto, name='obtener_precio_producto'),
+     path('api/crear_categoria/', views.crear_categoria, name='crear_categoria'),
+     path('api/eliminar_categoria/<int:categoria_id>/', views.eliminar_categoria, name='eliminar_categoria'),
+     path('api/obtener_todas_las_ordenes/', views.obtener_todas_las_ordenes, name='obtener_todas_las_ordenes'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

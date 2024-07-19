@@ -44,4 +44,13 @@ export class ApiService {
     const data = {cliente_id: clienteId,producto_id: productoId};
     return this.http.post<any>(`${this.baseUrl}carritos/eliminar_producto/`, data);
   }
+  eliminarCategoria(categoriaId: number): Observable<any> {
+    return this.http.delete<any>(`${this.baseUrl}eliminar_categoria/${categoriaId}/`);
+  }
+  obtenerTodasLasOrdenes(): Observable<any> {
+    return this.http.get<any[]>(`${this.baseUrl}obtener_todas_las_ordenes/`);
+  }
+  marcarOrdenComoAtendida(ordenId: number): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}marcar_orden_como_atendida/${ordenId}/`, {});
+  }
 }

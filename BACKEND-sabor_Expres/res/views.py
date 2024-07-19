@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from rest_framework.views import APIView
 from res.serializers import CarritoSerializer
 from sabor_Expres.settings import EMAIL_HOST_PASSWORD, EMAIL_HOST_USER
-from .models import Carrito, DetalleCarrito, Producto, Categoria, Cliente, Orden, DetalleOrden, User
+from .models import Carrito, DetalleCarrito, Pago, Producto, Categoria, Cliente, Orden, DetalleOrden, User
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 from django.utils import timezone
@@ -433,4 +433,39 @@ def enviar_boleta(request):
         logger.error("Error en la vista enviar_boleta: %s", traceback.format_exc())
         return JsonResponse({'message': 'Error en la vista enviar_boleta', 'details': str(e)}, status=500)
 
-
+@csrf_exempt
+def crear_categoria(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        nombre = data.get('nombre')
+        descripcion = data.get('descripcion', '')
+        categoria = Categoria.objects.create(nombre=nombre, descripcion=descripcion)
+        return JsonResponse({'id': categoria.id, 'nombre': categoria.nombre, 'descripcion': categoria.descripcion})
+    
+@csrf_exempt
+def eliminar_categoria(request, categoria_id):
+    if request.method == 'DELETE':
+        try:
+            categoria = Categoria.objects.get(id=categoria_id)
+            categoria.delete()
+            return JsonResponse({'mensaje': 'Categoría eliminada'})
+        except Categoria.DoesNotExist:
+            return JsonResponse({'error': 'Categoría no encontrada'}, status=404)
+        
+@csrf_exempt
+def obtener_todas_las_ordenes(request):
+    ordenes = Orden.objects.all().order_by('-fecha')
+    ordenes_list = []
+    for orden in ordenes:
+        detalle_orden = DetalleOrden.objects.filter(orden=orden)
+        orden_data = {
+            'id': orden.id,
+            'cliente': orden.cliente.nombre,
+            'fecha': orden.fecha,
+            'total': orden.total,
+            'estado': orden.estado,
+            'pagado': Pago.objects.filter(orden=orden, estado=True).exists(),
+            'detalles': list(detalle_orden.values('producto__nombre', 'cantidad', 'precio'))
+        }
+        ordenes_list.append(orden_data)
+    return JsonResponse(ordenes_list, safe=False)

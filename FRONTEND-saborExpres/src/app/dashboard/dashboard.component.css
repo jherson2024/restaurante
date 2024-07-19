@@ -1,100 +1,82 @@
-/* Estilos para el contenedor principal */
-div {
-  max-width: 800px;
-  margin: 0 auto;
+/* Contenedor principal para productos, categorías y órdenes */
+.container {
+  display: flex;
+  flex-direction: row; /* Cambia la dirección del contenedor a fila */
+  align-items: flex-start; /* Alinear a la izquierda */
+  width: 100%;
   padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos para el título principal */
-h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
+/* Contenedor para los formularios */
+.form-container {
+  width: 35%; /* Ajusta el ancho según sea necesario */
+  margin-right: 20px; /* Espacio entre los formularios y las órdenes */
 }
 
-/* Estilos para el formulario */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+/* Contenedor para las órdenes */
+.ordenes-container {
+  width: 60%; /* Ajusta el ancho según sea necesario */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Añadir barra de desplazamiento vertical si es necesario */
+  max-height: calc(100vh - 100px); /* Ajustar la altura máxima según sea necesario */
 }
 
-/* Estilos para cada grupo de control en el formulario */
-form > div {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Estilos para las etiquetas */
-label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #555;
-}
-
-/* Estilos para los campos de entrada de texto */
-input[type="text"],
-textarea,
-select,
-input[type="file"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-  color: #333;
-}
-
-/* Estilos para el botón de enviar */
-button[type="submit"] {
-  padding: 10px 20px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-/* Estilos para el botón de enviar al pasar el ratón por encima */
-button[type="submit"]:hover {
-  background-color: #218838;
-}
-
-/* Estilos para el título de la lista de productos */
-h2 {
-  margin-top: 40px;
-  color: #333;
-}
-
-/* Estilos para la lista de productos */
-ul {
+/* Lista de órdenes */
+.ordenes-list {
   list-style-type: none;
   padding: 0;
 }
 
-/* Estilos para cada elemento de la lista de productos */
-li {
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
+.ordenes-list li {
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
+  flex-direction: column; /* Asegurar que los detalles de la orden estén en una columna */
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start; /* Alinear los elementos de la orden a la izquierda */
 }
 
-/* Estilos para el botón de eliminar */
-button {
-  padding: 5px 10px;
-  background-color: #dc3545;
-  color: white;
+.ordenes-list li.pagado {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.ordenes-list li.no-pagado {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.orden-info {
+  width: 100%; /* Asegurarse de que la información de la orden ocupe todo el ancho */
+}
+
+.orden-info span {
+  display: block;
+  margin-right: 10px;
+}
+
+.detalles {
+  margin-top: 10px;
+}
+
+.orden-info button {
+  padding: 8px 12px;
   border: none;
   border-radius: 4px;
-  font-size: 0.875rem;
+  background-color: #007bff;
+  color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-/* Estilos para el botón de eliminar al pasar el ratón por encima */
-button:hover {
-  background-color: #c82333;
+.orden-info button:hover {
+  background-color: #0056b3;
 }

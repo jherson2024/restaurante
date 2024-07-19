@@ -22,4 +22,7 @@ export class ProductoService {
   obtenerCategorias(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}obtener_categorias/`);
   }
+  crearCategoria(categoria: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}crear_categoria/`, categoria);
+  }
 }

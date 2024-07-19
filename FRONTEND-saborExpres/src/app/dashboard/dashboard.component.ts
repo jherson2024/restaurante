@@ -4,22 +4,25 @@
   import { CommonModule } from '@angular/common';
   import { RouterLink } from '@angular/router';
   import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from '../api.service';
 
   @Component({
     selector: 'app-dashboard',
     standalone: true,
     imports: [ReactiveFormsModule,CommonModule,RouterLink,HttpClientModule],
-    providers:[ProductoService],
+    providers:[ProductoService,ApiService],
     templateUrl: './dashboard.component.html',
     styleUrl: './dashboard.component.css'
   })
   export class DashboardComponent implements OnInit {
     productoForm: FormGroup;
+    categoriaForm: FormGroup;
     categorias: any[] = [];
     productos: any[] = [];
+    ordenes: any[] = [];
     selectedFile: File | null = null;
 
-    constructor(private fb: FormBuilder, private productoService: ProductoService) {
+    constructor(private fb: FormBuilder, private productoService: ProductoService,private apiService: ApiService) {
       this.productoForm = this.fb.group({
         nombre: ['', Validators.required],
         descripcion: [''],
@@ -28,11 +31,16 @@
         // imagen_url: ['']
         imagen: [null]
       });
+      this.categoriaForm = this.fb.group({
+        nombre: ['', Validators.required],
+        descripcion: ['']
+      });
     }
 
     ngOnInit(): void {
       this.cargarCategorias();
       this.cargarProductos();
+      this.cargarOrdenes();
     }
 
     cargarCategorias() {
@@ -45,13 +53,42 @@
         }
       );
     }
+    cargarOrdenes() {
+      this.apiService.obtenerTodasLasOrdenes().subscribe(
+        data => {
+          this.ordenes = data;
+        },
+        error => {
+          console.error('Error al cargar órdenes', error);
+        }
+      );
+    }
+    marcarComoAtendida(ordenId: number) {
+      this.apiService.marcarOrdenComoAtendida(ordenId).subscribe(
+        response => {
+          console.log('Orden marcada como atendida', response);
+          this.ordenes = this.ordenes.filter(orden => orden.id !== ordenId); 
+        },
+        error => {
+          console.error('Error al marcar orden como atendida', error);
+        }
+      );
+    }
+    
 
     onFileSelected(event: any) {
       this.selectedFile = event.target.files[0];
     }
 
     cargarProductos() {
-      // Aquí iría la lógica para cargar los productos existentes
+      this.apiService.getProductos().subscribe(
+        data => {
+          this.productos = data;
+        },
+        error => {
+          console.error('Error al cargar productos', error);
+        }
+      );
     }
 
     crearProducto() {
@@ -83,6 +120,35 @@
         },
         error => {
           console.error('Error al eliminar producto', error);
+        }
+      );
+    }
+    crearCategoria() {
+      if (this.categoriaForm.valid) {
+        const categoriaData = {
+          nombre: this.categoriaForm.get('nombre')?.value,
+          descripcion: this.categoriaForm.get('descripcion')?.value
+        };
+  
+        this.productoService.crearCategoria(categoriaData).subscribe(
+          response => {
+            console.log('Categoría creada', response);
+            this.cargarCategorias(); // Recargar la lista de categorías
+          },
+          error => {
+            console.error('Error al crear categoría', error);
+          }
+        );
+      }
+    }
+    eliminarCategoria(categoriaId: number) {
+      this.apiService.eliminarCategoria(categoriaId).subscribe(
+        response => {
+          console.log('Categoría eliminada', response);
+          this.cargarCategorias(); 
+        },
+        error => {
+          console.error('Error al eliminar categoría', error);
         }
       );
     }
