@@ -20,6 +20,6 @@ export class ProductoService {
   }
 
   obtenerCategorias(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}categorias/`);
+    return this.http.get<any>(`${this.baseUrl}obtener_categorias/`);
   }
 }

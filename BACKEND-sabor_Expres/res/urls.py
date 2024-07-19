@@ -25,7 +25,7 @@ urlpatterns = [
       path('api/user-login/', views.user_login_view, name='user_login'),
       path('api/crear-producto/', views.crear_producto, name='crear_producto'),
     path('api/eliminar-producto/<int:producto_id>/', views.eliminar_producto, name='eliminar_producto'),
-     path('api/categorias/', views.obtener_categorias, name='obtener_categorias'),
+     path('api/obtener_categorias/', views.obtener_categorias, name='obtener_categorias'),
      path('api/enviar_boleta/', views.enviar_boleta, name='enviar_boleta'),
      path('api/', include(router.urls)),
      path('api/obtener-precio-producto/', views.obtener_precio_producto, name='obtener_precio_producto'),

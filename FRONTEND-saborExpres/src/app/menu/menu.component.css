@@ -178,3 +178,50 @@ body {
   padding: 5px 10px;
   font-size: 20px;
 }
+.add-to-cart-button {
+  background-color: var(--button-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-top: 10px;
+}
+
+.add-to-cart-button:hover {
+  background-color: var(--button-hover-color);
+  transform: scale(1.05);
+}
+
+.add-to-cart-button:active {
+  transform: scale(0.95);
+}
+.categoria-filter {
+  display: flex;
+  justify-content: center;  /* Centrar horizontalmente */
+  align-items: center;      /* Centrar verticalmente */
+  margin-bottom: 20px;      /* Añadir margen inferior */
+}
+
+.categoria-filter label {
+  margin-right: 10px;       /* Añadir margen a la derecha del label */
+  font-size: 1.2em;         /* Ajustar tamaño de fuente */
+  color: var(--text-color); /* Usar color de texto principal */
+}
+
+.categoria-filter select {
+  padding: 5px 10px;           /* Añadir relleno interno */
+  font-size: 1em;              /* Ajustar tamaño de fuente */
+  border-radius: 5px;          /* Bordes redondeados */
+  border: 1px solid var(--primary-color);  /* Color de borde */
+  background-color: white;     /* Color de fondo */
+  color: var(--text-color);    /* Color de texto */
+  outline: none;               /* Sin borde de enfoque */
+  transition: border-color 0.3s; /* Transición para cambio de color de borde */
+}
+
+.categoria-filter select:focus {
+  border-color: var(--secondary-color); /* Color de borde al enfocar */
+}

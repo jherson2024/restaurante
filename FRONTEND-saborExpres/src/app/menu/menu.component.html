@@ -1,10 +1,20 @@
 <div id="productos">
   <h1 class="product-title">Menú de Productos</h1>
+  
+  <!-- Selector de categoría -->
+  <div class="categoria-filter">
+    <label for="categoria">Filtrar por categoría:</label>
+    <select id="categoria" (change)="onCategoriaChange($event)">
+      <option value="">Todas las categorías</option>
+      <option *ngFor="let categoria of categorias ?? []" [value]="categoria.nombre">{{ categoria.nombre }}</option>
+    </select>
+  </div>
+
   <ul class="product-list">
-    <li *ngFor="let producto of productos" class="product-item">
+    <li *ngFor="let producto of filteredProductos ?? []" class="product-item">
       <div class="product-content">
         <div *ngIf="producto.imagen" class="product-image-container">
-          <img [src]="producto.imagen" alt="{{ producto.nombre }}" class="product-image" (click)="moveToCart($event, producto.id, clienteId)">
+          <img [src]="producto.imagen" alt="{{ producto.nombre }}" class="product-image">
         </div>
         <div *ngIf="!producto.imagen" class="product-no-image">
           <p class="product-name">Nombre: {{ producto.nombre }}</p>
@@ -14,11 +24,12 @@
           <p class="product-description">{{ producto.descripcion }}</p>
           <span class="product-price">Precio: {{ producto.precio }}</span>
         </div>
+        <button class="add-to-cart-button" (click)="moveToCart($event, producto.id, clienteId)">Añadir al carrito</button>
       </div>
     </li>
   </ul>
 </div>
+
 <div #cartContainer id="cart-container">
   <div [routerLink]="['/cart']" id="cart-icon">🛒<span id="cart-count">{{ carritoCount }}</span></div>
 </div>
-
