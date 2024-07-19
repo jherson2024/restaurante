@@ -469,3 +469,11 @@ def obtener_todas_las_ordenes(request):
         }
         ordenes_list.append(orden_data)
     return JsonResponse(ordenes_list, safe=False)
+
+@csrf_exempt
+def marcar_orden_como_atendida(request, orden_id):
+    if request.method == 'POST':
+        orden = get_object_or_404(Orden, id=orden_id)
+        orden.estado = 'atendida'
+        orden.save()
+        return JsonResponse({'mensaje': 'Orden marcada como atendida'})
