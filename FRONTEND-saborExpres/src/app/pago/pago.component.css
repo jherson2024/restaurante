@@ -1,29 +1,100 @@
+
+
 .pago-container {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-  ngx-qrcode {
-    display: block;
-    margin: 0 auto 20px;
-  }
-  
-  button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 20px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #218838;
-  }
-  
-  .pago-realizado {
-    margin-top: 20px;
-    color: #28a745;
-  }
-  
+  padding: 20px;
+  background-color: var(--background-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  width: 80%;
+  max-width: 800px;
+  text-align: center;
+}
+
+.pago-title {
+  font-size: 2em;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.resumen-compra {
+  margin-bottom: 20px;
+}
+
+.resumen-compra h2 {
+  font-size: 1.5em;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.resumen-lista {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resumen-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.resumen-precio {
+  color: var(--accent-color);
+}
+
+.resumen-total {
+  font-size: 1.5em;
+  color: var(--text-color);
+  margin-top: 20px;
+}
+
+.pago-metodo {
+  margin-bottom: 20px;
+}
+
+.pago-metodo h2 {
+  font-size: 1.5em;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.qr-code {
+  width: 200px; /* Ajustar el tamaño del código QR */
+  height: 200px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pago-button {
+  padding: 10px 20px;
+  background-color: var(--button-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+.pago-button:hover {
+  background-color: var(--button-hover-color);
+}
+
+.pago-realizado {
+  padding: 20px;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  color: var(--text-color);
+}
+
+.pago-realizado h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.pago-realizado p {
+  font-size: 1em;
+}

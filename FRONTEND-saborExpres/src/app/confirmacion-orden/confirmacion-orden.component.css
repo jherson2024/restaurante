@@ -1,93 +1,129 @@
-body {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  div {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 0px solid #000;
-    border-radius: 0px;
-    background: #fff;
-    box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    background-color: rgb(234, 230, 222);
-  }
-  #principal{
-    background-color: rgb(234, 230, 222);
-    border: 1px solid #000;
-  }
-  
-  h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  h2 {
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  
-  p {
-    font-size: 16px;
-    margin: 5px 0;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 20px 0;
-    text-align: left;
-  }
-  
-  ul li {
-    font-size: 16px;
-    padding: 8px 0;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  ul li:last-child {
-    border-bottom: none;
-  }
-  
-  .logo-image {
-    max-width: 100px;
-    margin-bottom: 20px;
-  }
-  
-  p.error-message {
-    font-size: 18px;
-    color: red;
-    text-align: center;
-  }
-  
-  p.total {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 20px;
-    border-top: 2px solid #000;
-    padding-top: 10px;
-  }
-  
-  .header-section {
-    border-bottom: 2px solid #000;
-    margin-bottom: 10px;
-  }
-  
-  .details-section {
-    margin-bottom: 20px;
-  }
-  
-  .client-info {
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .bold {
-    font-weight: bold;
-  }
+:root {
+  --primary-color: #F08080; /* Light Coral */
+  --secondary-color: #FFA500; /* Orange */
+  --background-color: #FFF5EE; /* Seashell */
+  --text-color: #2F4F4F; /* Dark Slate Gray */
+  --accent-color: #FFA500; /* Orange */
+  --button-color: #F08080; /* Light Coral */
+  --button-hover-color: #FF6347; /* Tomato */
+  --navbar-background: #f9d7d7; /* Very Light Coral */
+  --navbar-link-color: #da4506; /* Dark Orange */
+  --navbar-link-hover: #3e1402; /* Dark Brown */
+  --navbar-link-underline: #c11700; /* Red */
+  --card-background-color: #FFDAB9; /* Peach Puff */
+  --card-text-color: #8B4513; /* Saddle Brown */
+}
 
-  
+#principal {
+  padding: 20px;
+  background-color: var(--background-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  width: 80%;
+  max-width: 800px;
+  text-align: center;
+}
+
+.logo-image {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.header-section {
+  margin-bottom: 20px;
+}
+
+.header-section h1 {
+  font-size: 2em;
+  color: var(--text-color);
+  margin-bottom: 5px;
+}
+
+.header-section p {
+  color: var(--text-color);
+  margin: 3px 0;
+}
+
+.boleta-title {
+  font-size: 1.8em;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.details-section {
+  margin-bottom: 20px;
+}
+
+.details-section p {
+  color: var(--text-color);
+  margin: 5px 0;
+}
+
+.details-section .bold {
+  font-weight: bold;
+}
+
+.boleta-subtitle {
+  font-size: 1.5em;
+  color: var(--text-color);
+  margin-bottom: 15px;
+}
+
+.product-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.product-price {
+  color: var(--accent-color);
+}
+
+.total {
+  font-size: 1.5em;
+  color: var(--text-color);
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.error-message {
+  color: red;
+  font-size: 1.2em;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.boleta-button {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: var(--button-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+.boleta-button:hover {
+  background-color: var(--button-hover-color);
+}
+#mensaje {
+  background-color: #f0f8ff; /* Color de fondo */
+  color: #333; /* Color del texto */
+  font-size: 26px; /* Tamaño de la fuente */
+}

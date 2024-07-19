@@ -10,12 +10,26 @@
     --navbar-link-color: #da4506; /* Dark Orange */
     --navbar-link-hover: #3e1402; /* Dark Brown */
     --navbar-link-underline: #c11700; /* Red */
-    --card-background-color: #FFDAB9; /* Peach Puff */
+    --card-background-color: #fbe6d4; /* Peach Puff */
     --card-text-color: #8B4513; /* Saddle Brown */
+    --admin-background-color: #333333; /* Dark Grey */
+    --admin-text-color: #FFFFFF; /* White */
+    --admin-button-color: #666666; /* Medium Grey */
+    --admin-button-hover-color: #888888; /* Light Grey */
+    --contact-background: #fef9f9; /* Seashell */
+    --contact-border: #F08080; /* Light Coral */
+    --contact-title-color: #2F4F4F; /* Dark Slate Gray */
+    --contact-info-bg: #f5e8e7; /* Peach Puff */
+    --contact-info-border: #8B4513; /* Saddle Brown */
+    --map-border: #FFA500; /* Orange */
   }
-  
-  body {
+
+  html, body {
     margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Evita el scroll horizontal */
   }
 
   

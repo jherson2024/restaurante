@@ -15,10 +15,6 @@ export class ApiService {
     return this.http.get(this.baseUrl + 'productos/');
   }
 
-  agregarProductoAlCarrito(clienteId: number, productoId: number): Observable<any> {
-    const data = {cliente_id: clienteId,producto_id: productoId};
-    return this.http.post<any>(`${this.baseUrl}carritos/agregar_producto/`, data);
-  }
   getCarrito(clienteId: number): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}carritos/obtener_carrito/`);
   }
@@ -39,5 +35,13 @@ export class ApiService {
     const url = `${this.baseUrl}enviar_boleta/`;
     const body = { email: email, pdf_data: pdfData };
     return this.http.post<any>(url, body);
+  }
+  agregarProductoAlCarrito(clienteId: number, productoId: number): Observable<any> {
+    const data = {cliente_id: clienteId,producto_id: productoId};
+    return this.http.post<any>(`${this.baseUrl}carritos/agregar_producto/`, data);
+  }
+  eliminarProductoCarrito(clienteId: number, productoId: number): Observable<any> {
+    const data = {cliente_id: clienteId,producto_id: productoId};
+    return this.http.post<any>(`${this.baseUrl}carritos/eliminar_producto/`, data);
   }
 }

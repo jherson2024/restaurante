@@ -181,6 +181,20 @@ class CarritoViewSet(viewsets.ModelViewSet):
 
 
         return Response({'status': 'Solicitud POST recibida'}, status=200)
+    
+    @action(detail=False, methods=['post'])
+    def eliminar_producto(self, request):
+        data = request.data
+        producto_id = data.get('producto_id')
+        cliente_id = data.get('cliente_id')
+        carrito = get_object_or_404(Carrito, cliente_id=cliente_id, activo=True)
+        detalles = DetalleCarrito.objects.filter(carrito=carrito, producto_id=producto_id)
+        
+        if detalles.exists():
+            detalles.delete()
+            return Response({'status': 'Producto eliminado del carrito'}, status=200)
+        else:
+            return Response({'error': 'Producto no encontrado en el carrito'}, status=404)
    
 from rest_framework import status
 class ProductosCarritoView(APIView):
@@ -432,16 +446,16 @@ def enviar_boleta(request):
             backend='django.core.mail.backends.smtp.EmailBackend',
             host='smtp.gmail.com',
             port=587,
-            username='clafiorelariza@gmail.com',
-            password='fiorelajwd',
+            username='jinca@unsa.edu.pe',
+            password='selene3318ge',
             use_tls=True
         )
 
 
         email.subject = 'Boleta de Venta'
         email.body = 'Adjunto encontrarás tu boleta de venta.'
-        email.from_email = 'clafiorelariza@gmail.com'  
-        email.to = ['cliente_email']
+        email.from_email = 'jinca@unsa.edu.pe'  
+        email.to = [cliente_email]
         print("entro a try envio email 5")
         email.attach('boleta.pdf', pdf_content, 'application/pdf')
         print("entro a try envio email 6")

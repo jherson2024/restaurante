@@ -1,24 +1,23 @@
 <div class="login-container">
-    <h2>Login</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input id="email" formControlName="email" type="email" class="form-control" required>
-        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error">
-          Email is required and must be a valid email address.
-        </div>
+  <h2 class="login-title">Iniciar Sesión (Clientes)</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="email" class="form-label">Email</label>
+      <input id="email" formControlName="email" type="email" class="form-input" required>
+      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error-message">
+        El email es obligatorio y debe ser una dirección de email válida.
       </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input id="password" formControlName="password" type="password" class="form-control" required>
-        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error">
-          Password is required.
-        </div>
+    </div>
+    <div class="form-group">
+      <label for="password" class="form-label">Password</label>
+      <input id="password" formControlName="password" type="password" class="form-input" required>
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
+        La contraseña es obligatoria.
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
-      <div *ngIf="errorMessage" class="error">
-        {{ errorMessage }}
-      </div>
-    </form>
-  </div>
-  
+    </div>
+    <button type="submit" class="login-button" [disabled]="!loginForm.valid">Login</button>
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </form>
+</div>

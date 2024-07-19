@@ -1,40 +1,81 @@
-/* login.component.css */
+:root {
+  --primary-color: #F08080; /* Light Coral */
+  --secondary-color: #FFA500; /* Orange */
+  --background-color: #FFF5EE; /* Seashell */
+  --text-color: #2F4F4F; /* Dark Slate Gray */
+  --accent-color: #FFA500; /* Orange */
+  --button-color: #F08080; /* Light Coral */
+  --button-hover-color: #FF6347; /* Tomato */
+  --navbar-background: #f9d7d7; /* Very Light Coral */
+  --navbar-link-color: #da4506; /* Dark Orange */
+  --navbar-link-hover: #3e1402; /* Dark Brown */
+  --navbar-link-underline: #c11700; /* Red */
+  --card-background-color: #FFDAB9; /* Peach Puff */
+  --card-text-color: #8B4513; /* Saddle Brown */
+}
+
 .login-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .login-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-  }
-  
-  .btn {
-    width: 100%;
-    padding: 10px;
-  }
-  
-  .error {
-    color: red;
-    font-size: 0.875em;
-  }
-  
+  padding: 20px;
+  background-color: var(--background-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-title {
+  font-size: 2em;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text-color);
+  font-size: 1em;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  font-size: 1em;
+  box-sizing: border-box; /* Para asegurar que el padding no afecte al ancho */
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+}
+
+.login-button {
+  padding: 10px 20px;
+  background-color: var(--button-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.login-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.login-button:hover:not(:disabled) {
+  background-color: var(--button-hover-color);
+}

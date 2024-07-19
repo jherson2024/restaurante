@@ -122,4 +122,37 @@
     color: var(--accent-color);
     font-weight: bold;
   }
+
+
+  #cart-container {
+    position: fixed;
+    top: 163px;  /* Ajusta esta posición según tus necesidades */
+    left: 30px;  /* Ajusta esta posición según tus necesidades */
+    width: 100px;
+    height: 100px;
+    z-index: 1000;
+  }
   
+  #cart-icon {
+    font-size: 60px;
+  }
+  
+  .product-image {
+    cursor: pointer;
+    transition: transform 1s ease-in-out;
+  }
+  
+  @keyframes moveToCart {
+    from {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+    to {
+      transform: translate(calc(100vw - 60px), calc(-100vh + 60px));
+      opacity: 0;
+    }
+  }
+  
+  .moving-to-cart {
+    animation: moveToCart 1s forwards;
+  }

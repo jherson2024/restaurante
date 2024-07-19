@@ -1,12 +1,25 @@
 <div class="pago-container">
-    <h1>Pago con Yape</h1>
-    <img [src]="'http://127.0.0.1:8000/static/images/qr.png'" alt="QR Code para Yape" class="qr-code">
+  <h1 class="pago-title">Pago de Compras</h1>
   
-    <button (click)="simularEscaneo()">Simular Escaneo con el QR</button>
-  
-    <div *ngIf="pagoRealizado" class="pago-realizado">
-      <h2>Pago Realizado</h2>
-      <p>¡Gracias por su compra!</p>
-    </div>
+  <div class="resumen-compra">
+    <h2>Resumen de la Compra</h2>
+    <ul class="resumen-lista">
+      <li *ngFor="let producto of productos" class="resumen-item">
+        <span>{{ producto.nombre }}</span>
+        <span class="resumen-precio">{{ producto.precio | currency }}</span>
+      </li>
+    </ul>
+    <h3 class="resumen-total">Total: {{ calcularTotal() | currency }}</h3>
   </div>
   
+  <div class="pago-metodo">
+    <h2>Paga con Yape</h2>
+    <img [src]="'http://127.0.0.1:8000/static/images/yape.webp'" alt="QR Code para Yape" class="qr-code">
+    <button class="pago-button" (click)="simularEscaneo()">Simular Escaneo con el QR</button>
+  </div>
+  
+  <div *ngIf="pagoRealizado" class="pago-realizado">
+    <h2>Pago Realizado</h2>
+    <p>¡Gracias por su compra!</p>
+  </div>
+</div>

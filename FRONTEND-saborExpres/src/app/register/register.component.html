@@ -1,23 +1,22 @@
 <div class="register-container">
-    <h2>Registrar Cliente</h2>
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input id="nombre" formControlName="nombre" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input id="email" formControlName="email" class="form-control" type="email" />
-      </div>
-      <div class="form-group">
-        <label for="telefono">Teléfono</label>
-        <input id="telefono" formControlName="telefono" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input id="password" formControlName="password" class="form-control" type="password" />
-      </div>
-      <button type="submit" class="btn btn-primary">Registrar</button>
-    </form>
-  </div>
-  
+  <h2 class="register-title">Registrar Cliente</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input id="nombre" formControlName="nombre" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="email" class="form-label">Email</label>
+      <input id="email" formControlName="email" class="form-input" type="email" />
+    </div>
+    <div class="form-group">
+      <label for="telefono" class="form-label">Teléfono</label>
+      <input id="telefono" formControlName="telefono" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="password" class="form-label">Contraseña</label>
+      <input id="password" formControlName="password" class="form-input" type="password" />
+    </div>
+    <button type="submit" class="register-button">Registrar</button>
+  </form>
+</div>

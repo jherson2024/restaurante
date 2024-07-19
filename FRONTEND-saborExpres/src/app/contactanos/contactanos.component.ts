@@ -12,5 +12,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './contactanos.component.css'
 })
 export class ContactanosComponent {
-correo:String="info@restaurante.com";
+correo:String="info@restaurante.com";   
 }

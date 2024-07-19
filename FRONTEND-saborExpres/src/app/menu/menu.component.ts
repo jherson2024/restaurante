@@ -1,7 +1,7 @@
 // menu.component.ts
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { ApiService } from '../api.service';
@@ -29,7 +29,7 @@ export class MenuComponent implements OnInit {
   carrito: { producto_id: number, cliente_id: number }[] = [];
   clienteId = 1;  // ID del cliente
 
-  constructor(private apiService: ApiService, private authService: AuthService) {
+  constructor(private apiService: ApiService, private authService: AuthService,private renderer: Renderer2) {
     this.clienteId = this.authService.getClienteId();
     if (this.clienteId === 0) {
       this.clienteId = 4;  // Default value if not set
@@ -44,7 +44,6 @@ export class MenuComponent implements OnInit {
     this.apiService.getProductos().subscribe(
       data => {
         this.productos = data;
-        console.log('Productos recibidos:', data);
       },
       error => {
         console.error('Error fetching products:', error);
@@ -53,15 +52,21 @@ export class MenuComponent implements OnInit {
   }
 
   showProductId(productId: number, clienteId: number): void {
-    alert(`ID del producto: ${productId}, ID del cliente: ${clienteId}`);
     this.apiService.agregarProductoAlCarrito(clienteId, productId).subscribe(
       response => {
-        console.log('Producto agregado al carrito');
-        alert('Producto agregado al carrito');
       },
       error => {
         console.error('Error adding product to cart:', error);
       }
     );
+  }
+  moveToCart(event: any, productId: number, clienteId: number): void {
+    const imageElement = event.target as HTMLElement;
+    this.renderer.addClass(imageElement, 'moving-to-cart');
+    
+    imageElement.addEventListener('animationend', () => {
+      this.showProductId(productId, clienteId);
+      this.renderer.removeClass(imageElement, 'moving-to-cart');
+    }, { once: true });
   }
 }

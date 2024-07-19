@@ -35,4 +35,8 @@ export class PagoComponent implements OnInit {
     this.pagoRealizado = true;
     this.router.navigate(['/confirmacion-orden'], { state: { productos: this.productos, total: this.total } });
   }
+  
+  calcularTotal(): number {
+    return this.productos.reduce((acc, producto) => acc + parseFloat(producto.precio), 0);
+  }
 }

@@ -60,8 +60,15 @@ export class CartComponent implements OnInit {
 
   eliminarProducto(producto: Productos): void {
     // Aquí puedes agregar lógica para eliminar el producto del carrito en el backend
-    this.productos = this.productos.filter(p => p.id !== producto.id);
-    console.log(`Producto eliminado: ${producto.nombre}`);
+    this.apiService.eliminarProductoCarrito(this.clienteId, producto.id).subscribe(
+      response => {
+        this.productos = this.productos.filter(p => p.id !== producto.id);
+        console.log(`Producto eliminado: ${producto.nombre}`);
+      },
+      error => {
+        console.error('Error eliminando producto del carrito:', error);
+      }
+    );
   }
 
   calcularTotal(): number {

@@ -1,21 +1,23 @@
 <div id="productos">
-  <h1>Carrito</h1>
+  <h1 class="cart-title">Carrito</h1>
   <ul class="product-list">
     <li *ngFor="let producto of productos" class="product-item">
-      <div *ngIf="producto.imagen">
-        <img [src]="'http://127.0.0.1:8000/'+ producto.imagen" alt="{{ producto.nombre }}" class="product-image">
-      </div>
-      <div *ngIf="!producto.imagen">
-        <p>Nombre: {{ producto.nombre }}</p>
-        <p>No Image Available</p>
-      </div>
-      <div>
-        <span class="product-name">{{ producto.nombre }}</span>
-        <p>{{ producto.descripcion }}</p>
-        <span class="product-price">Precio: {{ producto.precio }}</span>
+      <div class="product-content">
+        <div *ngIf="producto.imagen" class="product-image-container">
+          <img [src]="'http://127.0.0.1:8000/' + producto.imagen" alt="{{ producto.nombre }}" class="product-image" (click)="eliminarProducto(producto)">
+        </div>
+        <div *ngIf="!producto.imagen" class="product-no-image">
+          <p class="product-name">Nombre: {{ producto.nombre }}</p>
+          <p>No Image Available</p>
+        </div>
+        <div class="product-info">
+          <span class="product-name">{{ producto.nombre }}</span>
+          <p class="product-description">{{ producto.descripcion }}</p>
+          <span class="product-price">Precio: {{ producto.precio }}</span>
+        </div>
       </div>
     </li>
   </ul>
-  <h3>Total: {{ calcularTotal() | currency }}</h3>
-  <button (click)="procederPago()">Proceder al Pago</button>
+  <h3 class="cart-total">Total: {{ calcularTotal() | currency }}</h3>
+  <button class="cart-button" (click)="procederPago()">Proceder al Pago</button>
 </div>

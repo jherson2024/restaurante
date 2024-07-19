@@ -3,21 +3,17 @@
     <ul class="nav-links">
       <li class="nav-item"><a routerLink="/menu" class="nav-link">Menu</a></li>
       <li class="nav-item"><a routerLink="/cart" class="nav-link">Carrito</a></li>
-      <li class="nav-item"><a routerLink="/checkout" class="nav-link">Pago</a></li>
-      <li class="nav-item"><a routerLink="/order-confirmation" class="nav-link">Confirmación de orden</a></li>
       <li class="nav-item"><a routerLink="/reserva" class="nav-link">Reserva</a></li>
+      <li class="nav-item"><a routerLink="/contactanos" class="nav-link">Contactanos</a></li>
     </ul>
   </div>
-  <div class="logo">
+  <div class="logo-container">
     <a routerLink="/home">
-      <img src="/logoTerminado.png" alt="Sabor Express Logo">
+      <img src="/logoTerminado.png" alt="Sabor Express Logo" class="logo">
     </a>
   </div>
   <div class="nav-section right">
     <ul class="nav-links">
-      <li class="nav-item"><a routerLink="/order-history" class="nav-link">Historial de órdenes</a></li>
-      <li class="nav-item"><a routerLink="/user-profile" class="nav-link">Perfil del usuario</a></li>
-      <li class="nav-item"><a routerLink="/contactanos" class="nav-link">Contactanos</a></li>
       <li class="nav-item"><a routerLink="/user-login" class="nav-link">user</a></li>
       <li class="nav-item" *ngIf="!isLoggedIn"><a routerLink="/login" class="nav-link">Login</a></li>
       <li class="nav-item" *ngIf="!isLoggedIn"><a routerLink="/register" class="nav-link">Register</a></li>
