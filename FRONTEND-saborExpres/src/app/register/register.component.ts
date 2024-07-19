@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { HttpClientModule, HttpResponse } from '@angular/common/http';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
 export class RegisterComponent {
   registerForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private apiService: ApiService) {
+  constructor(private fb: FormBuilder, private apiService: ApiService,private router: Router) {
     this.registerForm = this.fb.group({
       nombre: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -31,11 +31,10 @@ export class RegisterComponent {
       this.apiService.registrarCliente(this.registerForm.value).subscribe(
         response => {
           console.log('Registro exitoso', response);
-          // Manejar el registro exitoso, como redireccionar al login
+          this.router.navigate(['/login']); 
         },
         error => {
           console.error('Error en el registro', error);
-          // Manejar el error de registro, como mostrar un mensaje de error
         }
       );
     }else{
