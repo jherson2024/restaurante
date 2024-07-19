@@ -60,4 +60,11 @@
           <span>Total: {{ orden.total | currency }}</span>
           <div class="detalles">
             <div *ngFor="let detalle of orden.detalles">
-              <span>{{ detalle.producto__nombre }} - Cantidad: {{ detalle.cantidad }} - Precio: {{ detalle.precio | curr
+              <span>{{ detalle.producto__nombre }} - Cantidad: {{ detalle.cantidad }} - Precio: {{ detalle.precio | currency }}</span>
+            </div>
+          </div>
+          <button (click)="marcarComoAtendida(orden.id)">Marcar como atendida</button>
+        </div>
+      </li>
+    </ul>
+  </div>
