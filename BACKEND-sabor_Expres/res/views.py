@@ -7,6 +7,7 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from rest_framework.views import APIView
 from res.serializers import CarritoSerializer
+from sabor_Expres.settings import EMAIL_HOST_PASSWORD, EMAIL_HOST_USER
 from .models import Carrito, DetalleCarrito, Producto, Categoria, Cliente, Orden, DetalleOrden, User
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
@@ -293,49 +294,6 @@ def registrar_cliente(request):
     return JsonResponse({'error': 'Método no permitido'}, status=405)
 from django.contrib.auth.hashers import check_password
 
-
-
-
-# @csrf_exempt
-# @require_http_methods(["POST"])
-# def user_login_view(request):
-#     print("entro a def")
-#     try:
-
-
-#         data = json.loads(request.body)
-#         print("despues de data")
-#         nombre = data.get('nombre').strip()
-#         print(nombre)
-#         password = data.get('password')
-#         print(password)
-
-
-#         all_users = User.objects.all()
-#         print("Todos los usuarios:")
-#         for user in all_users:
-#             print(f"ID: {user.id}, Nombre: {user.nombre}, Contraseña: {user.password}")
-#         user_found = None
-#         for user in all_users:
-#             if user.nombre == nombre:
-#                 user_found = user
-#                 break
-
-
-#         print("despues de user")
-#         if user.password == password:  
-#             print("true")
-#             return JsonResponse({'token': 'your_generated_token', 'userId': user.id, 'nombre': user.nombre}, status=200)
-#         else:
-#             print("false")
-#             return JsonResponse({'error': 'Credenciales inválidas'}, status=400)
-#     except User.DoesNotExist:
-#         return JsonResponse({'error': 'Credenciales inválidas'}, status=400)
-#     except json.JSONDecodeError:
-#         return JsonResponse({'error': 'Error en el formato de los datos'}, status=400)
-#     except Exception as e:
-#         return JsonResponse({'error': str(e)}, status=500)
-
 from django.contrib.auth import authenticate
 
 @csrf_exempt
@@ -446,15 +404,15 @@ def enviar_boleta(request):
             backend='django.core.mail.backends.smtp.EmailBackend',
             host='smtp.gmail.com',
             port=587,
-            username='jinca@unsa.edu.pe',
-            password='selene3318ge',
+            username=EMAIL_HOST_USER,
+            password=EMAIL_HOST_PASSWORD,
             use_tls=True
         )
 
 
         email.subject = 'Boleta de Venta'
         email.body = 'Adjunto encontrarás tu boleta de venta.'
-        email.from_email = 'jinca@unsa.edu.pe'  
+        email.from_email = EMAIL_HOST_USER  
         email.to = [cliente_email]
         print("entro a try envio email 5")
         email.attach('boleta.pdf', pdf_content, 'application/pdf')
