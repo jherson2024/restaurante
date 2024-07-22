@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Orden, Producto, Carrito, DetalleCarrito, Cliente
+from .models import Orden, Pago, Producto, Carrito, DetalleCarrito, Cliente
 
 class ProductoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -34,5 +34,11 @@ class ProductoCarritoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Producto
         fields = '__all__'
+
+class PagoSerializer(serializers.ModelSerializer):
+    orden = serializers.PrimaryKeyRelatedField(queryset=Orden.objects.all())
+    class Meta:
+        model = Pago
+        fields = ['orden', 'fecha', 'metodo', 'monto', 'estado']
 
         

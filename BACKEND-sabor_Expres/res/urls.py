@@ -33,4 +33,5 @@ urlpatterns = [
     path('api/eliminar_categoria/<int:categoria_id>/', views.eliminar_categoria, name='eliminar_categoria'),
     path('api/obtener_todas_las_ordenes/', views.obtener_todas_las_ordenes, name='obtener_todas_las_ordenes'),
     path('api/marcar_orden_como_atendida/<int:orden_id>/', views.marcar_orden_como_atendida, name='marcar_orden_como_atendida'),
+    path('api/pagos/', views.CrearPagoView.as_view(), name='crear_pago'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

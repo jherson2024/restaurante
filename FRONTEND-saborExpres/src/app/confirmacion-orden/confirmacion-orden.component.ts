@@ -59,13 +59,39 @@ export class ConfirmacionOrdenComponent implements OnInit {
       .subscribe(
         (data) => {
           this.ordenId = data.id;
-          console.log('Orden creada:', data);
+          this.crearPago();
         },
         (error) => {
           console.error('Error creando la orden:', error);
         }
       );
   }
+  crearPago():void{
+    console.log("estsd"+this.ordenId)
+    if (this.ordenId === null) {
+      console.error('Orden ID no disponible');
+      return;
+    }
+    const pago = {
+      orden: this.ordenId, // Enviar solo el ID de la orden
+      fecha: new Date().toISOString().split('T')[0], // Fecha actual en formato YYYY-MM-DD
+      metodo: 'Tarjeta de Crédito', // O el método de pago que estés usando
+      monto: this.total,
+      estado: true // Asumiendo que el pago se realiza con éxito
+    };
+
+    // Llamada al servicio para crear el pago
+    this.apiService.crearPago(pago).subscribe({
+      next: (response) => {
+        console.log('Pago creado exitosamente:', response);
+      },
+      error: (error) => {
+        console.error('Error al crear el pago:', error);
+        // Manejo de errores
+      }
+    });
+  }
+  
   obtenerNombreCliente(): void {
     this.apiService.getClienteById(this.clienteId).subscribe(
       (data) => {
