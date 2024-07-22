@@ -16,7 +16,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from .models import Producto, Carrito, DetalleCarrito, Cliente
-from .serializers import OrdenSerializer, ProductoCarritoSerializer, ProductoSerializer, CarritoSerializer, DetalleCarritoSerializer
+from .serializers import OrdenSerializer, PagoSerializer, ProductoCarritoSerializer, ProductoSerializer, CarritoSerializer, DetalleCarritoSerializer
 from django.core.mail import EmailMessage, get_connection
 import traceback
 
@@ -465,7 +465,7 @@ def obtener_todas_las_ordenes(request):
             'total': orden.total,
             'estado': orden.estado,
             'pagado': Pago.objects.filter(orden=orden, estado=True).exists(),
-            'detalles': list(detalle_orden.values('producto__nombre', 'cantidad', 'precio'))
+               'detalles': list(detalle_orden.values('producto__nombre', 'cantidad', 'precio'))
         }
         ordenes_list.append(orden_data)
     return JsonResponse(ordenes_list, safe=False)
@@ -477,3 +477,13 @@ def marcar_orden_como_atendida(request, orden_id):
         orden.estado = 'atendida'
         orden.save()
         return JsonResponse({'mensaje': 'Orden marcada como atendida'})
+    
+class CrearPagoView(APIView):
+    def post(self, request, *args, **kwargs):
+        serializer = PagoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        # Imprimir errores para depuración
+        print(serializer.errors)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

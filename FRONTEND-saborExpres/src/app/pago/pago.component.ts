@@ -8,6 +8,7 @@ import { ApiService } from '../api.service';
   selector: 'app-pago',
   standalone: true,
   imports: [RouterLink,CommonModule,HttpClientModule],
+  providers:[ApiService],
   templateUrl: './pago.component.html',
   styleUrl: './pago.component.css'
 })
@@ -18,7 +19,7 @@ export class PagoComponent implements OnInit {
   clienteId: number = 0;
   // private router: Router = new Router;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,private apiService:ApiService ) {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state) {
       this.productos = navigation.extras.state['productos'];
