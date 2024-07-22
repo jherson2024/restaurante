@@ -16,7 +16,7 @@
       <li class="nav-item"><a routerLink="/user-login" class="nav-link">Admin</a></li>
       <li class="nav-item" *ngIf="!isLoggedIn"><a routerLink="/login" class="nav-link">Iniciar Sesión</a></li>
       <li class="nav-item" *ngIf="!isLoggedIn"><a routerLink="/register" class="nav-link">Registrarse</a></li>
-      <li class="nav-item" *ngIf="isLoggedIn"><button (click)="logout()" class="logout-button nav-link">Logout</button></li>
+      <li class="nav-item" *ngIf="isLoggedIn"><button (click)="logout()" class="logout-button nav-link">Cerrar sesión</button></li>
     </ul>
     <div *ngIf="isLoggedIn" class="welcome-message">
       {{ clienteNombre }}
