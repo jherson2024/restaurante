@@ -1,0 +1,118 @@
+
+  .footer {
+    background-color: var(--footer-background-color);
+    color: var(--footer-text-color);
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    position: relative;
+    bottom: 0;
+  }
+  
+  /* Styling for containers inside the footer */
+  .footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2em 0;
+    box-sizing: border-box;
+  }
+  
+  /* Upper footer styling */
+  .upper-footer {
+    border-bottom: 1px solid var(--footer-link-underline-color);
+    padding-bottom: 2em;
+    background-color: var(--navbar-background);
+  }
+  
+  /* Lower footer styling */
+  .lower-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 0;
+    background-color: var(--footer-background-color);
+    border-top: 1px solid var(--footer-link-underline-color);
+    font-size: 0.9em;
+  }
+  
+  /* Footer section styling */
+  .footer-section {
+    flex: 1;
+    margin: 1em;
+    min-width: 150px;
+    text-align: left;
+  }
+  
+  /* Logo styling */
+  .footer-logo {
+    max-width: 230px;
+    margin-bottom: 1em;
+  }
+  
+  /* Footer section title styling */
+  .footer-section h4 {
+    margin-bottom: 0.5em;
+    font-size: 1.2em;
+    color: var(--footer-title-color);
+  }
+  
+  /* Unordered list styling */
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* List item styling */
+  .footer-section ul li {
+    margin: 0.5em 0;
+  }
+  
+  /* Anchor link styling */
+  .footer-section ul li a {
+    color: var(--footer-link-color);
+    text-decoration: none;
+    transition: color 0.3s, border-bottom 0.3s;
+  }
+  
+  .footer-section ul li a:hover {
+    color: var(--footer-link-hover-color);
+    border-bottom: 1px solid var(--footer-link-underline-color);
+  }
+  
+  /* Social links styling */
+  .social-links a {
+    display: block;
+    margin: 0.5em 0;
+    color: var(--footer-link-color);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .social-links a:hover {
+    color: var(--footer-link-hover-color);
+  }
+  
+  /* Footer section paragraph styling */
+  .footer-section p {
+    margin: 0.5em 0;
+  }
+  
+  /* Icon styling */
+  .footer-section p i {
+    margin-right: 0.5em;
+  }
+  
+  .payment-methods i {
+    margin: 0 0.5em;
+    font-size: 1.5em;
+    color: var(--footer-text-color);
+  }
+  
+  .payment-methods i:hover {
+    color: var(--footer-link-hover-color);
+  }
+  

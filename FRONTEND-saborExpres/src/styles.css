@@ -22,6 +22,13 @@
     --contact-info-bg: #f5e8e7; /* Peach Puff */
     --contact-info-border: #8B4513; /* Saddle Brown */
     --map-border: #FFA500; /* Orange */
+
+    --footer-background-color: #f8e7e4; /* Dark Brown */
+    --footer-text-color: #5d2902; /* Yellow */
+    --footer-title-color: #d77505; /* Deep Orange */
+    --footer-link-color: #ed4902; /* Light Orange */
+    --footer-link-hover-color: #c40202; /* Orange */
+    --footer-link-underline-color: #4b1304; /* Deep Orange */
   }
 
   html, body {

@@ -14,11 +14,13 @@
   --card-text-color: #8B4513; /* Saddle Brown */
 }
 
+
 #productos {
   padding: 20px;
   background-color: var(--background-color);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%;
   margin: 20px;
 }
 

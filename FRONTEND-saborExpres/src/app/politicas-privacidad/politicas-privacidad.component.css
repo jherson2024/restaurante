@@ -1,0 +1,45 @@
+:host {
+    display: block;
+    background: url('/fon2.webp') no-repeat center center fixed;
+    /* Asegúrate de que la ruta sea correcta */
+    background-size: cover;
+    padding: 0;
+    min-height: 100vh;
+    /* Ajusta la altura para cubrir toda la pantalla */
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+.privacy-container1 {
+    padding: 30px;
+}
+
+.privacy-container {
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+.privacy-container h1,
+.privacy-container h2 {
+    color: var(--primary-color);
+}
+
+.privacy-container p,
+.privacy-container ul {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.privacy-container ul {
+    padding-left: 20px;
+}
+
+.privacy-container h2 {
+    margin-top: 20px;
+}

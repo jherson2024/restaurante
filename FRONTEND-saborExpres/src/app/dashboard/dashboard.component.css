@@ -5,26 +5,154 @@
   align-items: flex-start; /* Alinear a la izquierda */
   width: 100%;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: var(--background-color);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  gap: 20px;
 }
 
 /* Contenedor para los formularios */
 .form-container {
   width: 35%; /* Ajusta el ancho según sea necesario */
-  margin-right: 20px; /* Espacio entre los formularios y las órdenes */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.card label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+
+.card input,
+.card textarea,
+.card select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.card button {
+  background-color: var(--button-color);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+  background-color: var(--button-hover-color);
+}
+
+/* Contenedor para los listados */
+.list-container {
+  width: 35%; /* Ajusta el ancho según sea necesario */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.list-container h2 {
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+}
+
+/* Lista de categorías */
+.category-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-item {
+  padding: 10px;
+  background-color: var(--card-background-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.category-item button {
+  background-color: var(--button-color);
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.category-item button:hover {
+  background-color: var(--button-hover-color);
+}
+
+/* Lista de productos */
+.product-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-item {
+  padding: 10px;
+  background-color: var(--card-background-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.product-item button {
+  background-color: var(--button-color);
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-item button:hover {
+  background-color: var(--button-hover-color);
 }
 
 /* Contenedor para las órdenes */
 .ordenes-container {
-  width: 60%; /* Ajusta el ancho según sea necesario */
+  width: 30%; /* Ajusta el ancho según sea necesario */
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow-y: auto; /* Añadir barra de desplazamiento vertical si es necesario */
   max-height: calc(100vh - 100px); /* Ajustar la altura máxima según sea necesario */
+}
+
+.ordenes-container h2 {
+  color: var(--secondary-color);
+  margin-bottom: 20px;
 }
 
 /* Lista de órdenes */

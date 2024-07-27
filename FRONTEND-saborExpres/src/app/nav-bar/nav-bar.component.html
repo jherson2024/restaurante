@@ -3,12 +3,14 @@
     <ul class="nav-links">
       <li class="nav-item"><a routerLink="/menu" class="nav-link">Menu</a></li>
       <li class="nav-item"><a routerLink="/cart" class="nav-link">Carrito</a></li>
+      <li class="nav-item"><a routerLink="/nosotros" class="nav-link">Nosotros</a></li>
       <li class="nav-item"><a routerLink="/contactanos" class="nav-link">Contactanos</a></li>
     </ul>
   </div>
   <div class="logo-container">
+    
     <a routerLink="/menu">
-      <img src="/logoTerminado.png" alt="Sabor Express Logo" class="logo">
+      <img src="/logoTerminadoTodo.png" alt="Sabor Express Logo" class="logo">
     </a>
   </div>
   <div class="nav-section right">
@@ -19,7 +21,7 @@
       <li class="nav-item" *ngIf="isLoggedIn"><button (click)="logout()" class="logout-button nav-link">Cerrar sesión</button></li>
     </ul>
     <div *ngIf="isLoggedIn" class="welcome-message">
-      {{ clienteNombre }}
+      {{ clienteNombre }} <i class="fa-solid fa-user"></i>
     </div>
   </div>
 </nav>

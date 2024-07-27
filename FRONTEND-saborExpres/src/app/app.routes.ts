@@ -7,6 +7,9 @@ import { LogoutComponent } from './logout/logout.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
+import { TerminosCondicionesComponent } from './terminos-condiciones/terminos-condiciones.component';
+import { PoliticasPrivacidadComponent } from './politicas-privacidad/politicas-privacidad.component';
 
 export const routes: Routes = [
 
@@ -18,6 +21,9 @@ export const routes: Routes = [
     { path: 'navBar', component: NavBarComponent },
     { path: 'user-login', component: UserLoginComponent },
     { path: 'dashboard', component: DashboardComponent },
+    { path: 'nosotros', component: NosotrosComponent },
+    { path: 'terminos', component: TerminosCondicionesComponent },
+    { path: 'politicas', component: PoliticasPrivacidadComponent },
     { path: 'cart',
       loadComponent: () =>
         import('./cart/cart.component').then((m) => m.CartComponent),

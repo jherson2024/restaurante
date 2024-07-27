@@ -60,6 +60,7 @@
   color: var(--navbar-link-color);
   cursor: pointer;
   font-weight: bold;
+  justify-content: center;
 }
 
 .logout-button:hover {
@@ -67,7 +68,7 @@
 }
 
 .welcome-message {
-  background-color: #5a5108;  /* Color de fondo */
+  background-color: #8d0f0b;  /* Color de fondo */
   color: white;  /* Color del texto */
   padding: 10px 20px;  /* Espaciado interior */
   border-radius: 5px;  /* Bordes redondeados */

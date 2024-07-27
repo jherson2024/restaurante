@@ -1,70 +1,83 @@
 <div class="container">
   <div class="form-container">
-    <h2>Crear Producto</h2>
-    <form [formGroup]="productoForm" (ngSubmit)="crearProducto()">
-      <label for="nombre">Nombre:</label>
-      <input id="nombre" formControlName="nombre">
+    <div class="card">
+      <h2>Crear Producto</h2>
+      <form [formGroup]="productoForm" (ngSubmit)="crearProducto()">
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" formControlName="nombre">
 
-      <label for="descripcion">Descripción:</label>
-      <textarea id="descripcion" formControlName="descripcion"></textarea>
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" formControlName="descripcion"></textarea>
 
-      <label for="precio">Precio:</label>
-      <input id="precio" formControlName="precio" type="number">
+        <label for="precio">Precio:</label>
+        <input id="precio" formControlName="precio" type="number">
 
-      <label for="categoria_id">Categoría:</label>
-      <select id="categoria_id" formControlName="categoria_id">
-        <option *ngFor="let categoria of categorias" [value]="categoria.id">{{ categoria.nombre }}</option>
-      </select>
+        <label for="categoria_id">Categoría:</label>
+        <select id="categoria_id" formControlName="categoria_id">
+          <option *ngFor="let categoria of categorias" [value]="categoria.id">{{ categoria.nombre }}</option>
+        </select>
 
-      <label for="imagen">Imagen:</label>
-      <input id="imagen" type="file" (change)="onFileSelected($event)">
+        <label for="imagen">Imagen:</label>
+        <input id="imagen" type="file" (change)="onFileSelected($event)">
 
-      <button type="submit">Crear Producto</button>
-    </form>
+        <button type="submit">Crear Producto</button>
+      </form>
+    </div>
 
-    <h2>Crear Categoría</h2>
-    <form [formGroup]="categoriaForm" (ngSubmit)="crearCategoria()">
-      <label for="categoria_nombre">Nombre:</label>
-      <input id="categoria_nombre" formControlName="nombre">
+    <div class="card">
+      <h2>Crear Categoría</h2>
+      <form [formGroup]="categoriaForm" (ngSubmit)="crearCategoria()">
+        <label for="categoria_nombre">Nombre:</label>
+        <input id="categoria_nombre" formControlName="nombre">
 
-      <label for="categoria_descripcion">Descripción:</label>
-      <textarea id="categoria_descripcion" formControlName="descripcion"></textarea>
+        <label for="categoria_descripcion">Descripción:</label>
+        <textarea id="categoria_descripcion" formControlName="descripcion"></textarea>
 
-      <button type="submit">Crear Categoría</button>
-    </form>
+        <button type="submit">Crear Categoría</button>
+      </form>
+    </div>
+  </div>
 
-    <h2>Categorías</h2>
-    <ul class="category-list">
-      <li *ngFor="let categoria of categorias" class="category-item">
-        <span>{{ categoria.nombre }}</span>
-        <button (click)="eliminarCategoria(categoria.id)">Eliminar</button>
-      </li>
-    </ul>
+  <div class="list-container">
+    <div class="card">
+      <h2>Categorías</h2>
+      <ul class="category-list">
+        <li *ngFor="let categoria of categorias" class="category-item">
+          <span>{{ categoria.nombre }}</span>
+          <button (click)="eliminarCategoria(categoria.id)">Eliminar</button>
+        </li>
+      </ul>
+    </div>
 
-    <h2>Productos</h2>
-    <ul class="product-list">
-      <li *ngFor="let producto of productos" class="product-item">
-        <span>{{ producto.nombre }}</span>
-        <button (click)="eliminarProducto(producto.id)">Eliminar</button>
-      </li>
-    </ul>
+    <div class="card">
+      <h2>Productos</h2>
+      <ul class="product-list">
+        <li *ngFor="let producto of productos" class="product-item">
+          <span>{{ producto.nombre }}</span>
+          <button (click)="eliminarProducto(producto.id)">Eliminar</button>
+        </li>
+      </ul>
+    </div>
   </div>
 
   <div class="ordenes-container">
-    <h2>Órdenes</h2>
-    <ul class="ordenes-list">
-      <li *ngFor="let orden of ordenes" [ngClass]="{'pagado': orden.pagado, 'no-pagado': !orden.pagado}">
-        <div class="orden-info">
-          <span>Cliente: {{ orden.cliente }}</span>
-          <span>Fecha: {{ orden.fecha }}</span>
-          <span>Total: {{ orden.total | currency }}</span>
-          <div class="detalles">
-            <div *ngFor="let detalle of orden.detalles">
-              <span>{{ detalle.producto__nombre }} - Cantidad: {{ detalle.cantidad }} - Precio: {{ detalle.precio | currency }}</span>
+    <div class="card">
+      <h2>Órdenes</h2>
+      <ul class="ordenes-list">
+        <li *ngFor="let orden of ordenes" [ngClass]="{'pagado': orden.pagado, 'no-pagado': !orden.pagado}">
+          <div class="orden-info">
+            <span>Cliente: {{ orden.cliente }}</span>
+            <span>Fecha: {{ orden.fecha }}</span>
+            <span>Total: {{ orden.total | currency }}</span>
+            <div class="detalles">
+              <div *ngFor="let detalle of orden.detalles">
+                <span>{{ detalle.producto__nombre }} - Cantidad: {{ detalle.cantidad }} - Precio: {{ detalle.precio | currency }}</span>
+              </div>
             </div>
+            <button (click)="marcarComoAtendida(orden.id)">Marcar como atendida</button>
           </div>
-          <button (click)="marcarComoAtendida(orden.id)">Marcar como atendida</button>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </div>
+</div>
